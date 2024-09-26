@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Place New Order</h2>
+    <form>
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input id="customerName" class="form-control" [(ngModel)]="newOrder.customerName" name="customerName" />
+      </div>
+  
+      <h3>Add Order Items</h3>
+      <div class="form-group">
+        <label for="productId">Product ID</label>
+        <input id="productId" class="form-control" type="number" [(ngModel)]="newItem.productId" name="productId" />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" class="form-control" type="number" [(ngModel)]="newItem.quantity" name="quantity" />
+      </div>
+      <div class="form-group">
+        <label for="unitPrice">Unit Price</label>
+        <input id="unitPrice" class="form-control" type="number" [(ngModel)]="newItem.unitPrice" name="unitPrice" />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addItem()">Add Item</button>
+  
+      <h3>Order Summary</h3>
+      <ul>
+        <li *ngFor="let item of newOrder.orderItems">
+          Product ID: {{ item.productId }}, Quantity: {{ item.quantity }}, Price: {{ item.unitPrice }}
+        </li>
+      </ul>
+  
+      <h4>Total Amount: {{ newOrder.totalAmount }}</h4>
+  
+      <button type="button" class="btn btn-success" (click)="placeOrder()">Place Order</button>
+    </form>
+  </div>
+  

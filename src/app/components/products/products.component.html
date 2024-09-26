@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Product List</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Add New Product</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input id="name" class="form-control" [(ngModel)]="newProduct.productName" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input id="category" class="form-control" [(ngModel)]="newProduct.category" name="category" />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" class="form-control" type="number" [(ngModel)]="newProduct.price" name="price" />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" class="form-control" type="number" [(ngModel)]="newProduct.quantity" name="quantity" />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+    </form>
+  </div>
+  
