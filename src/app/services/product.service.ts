@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:5000/api/product';  // Replace with your API URL
+  private baseUrl = 'https://localhost:7240/api/Product';  // Replace with your API URL
 
   constructor(private http: HttpClient) { }
 
