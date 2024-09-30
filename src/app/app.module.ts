@@ -26,6 +26,7 @@ import { EditSupplierComponent } from './components/suppliers/edit-supplier/edit
 import { UsersComponent } from './components/users/users.component';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { EditUserComponent } from './components/users/edit-user/edit-user.compon
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
