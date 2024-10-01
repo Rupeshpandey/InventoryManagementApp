@@ -3,14 +3,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// src/app/services/users.service.ts
 export interface User {
   id: number;
   username: string;
   email: string;
-  passwordHash: string;
+  password?: string; // Make password optional for updates
   role: string;
   createdAt: Date;
 }
+
 
 @Injectable({
   providedIn: 'root'

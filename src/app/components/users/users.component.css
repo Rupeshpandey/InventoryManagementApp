@@ -1,0 +1,16 @@
+/* src/app/components/users/users.component.css */
+.container {
+    padding: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .full-width-table {
+    width: 100%;
+  }
+  

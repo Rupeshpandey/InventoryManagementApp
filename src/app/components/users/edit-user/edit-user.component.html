@@ -1,1 +1,32 @@
-<p>edit-user works!</p>
+<!-- src/app/components/users/edit-user/edit-user.component.html -->
+<h2 mat-dialog-title>Edit User</h2>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="user.username" name="username">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="user.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [(ngModel)]="user.passwordHash" name="passwordHash" placeholder="Leave blank to keep current password">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="user.role" name="role">
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="User">User</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="accent" (click)="updateUser()">Update</button>
+</div>
