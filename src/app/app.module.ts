@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AddInventoryComponent } from './components/inventory/add-inventory/add-inventory.component';
 import { EditInventoryComponent } from './components/inventory/edit-inventory/edit-inventory.component';
@@ -27,6 +22,7 @@ import { UsersComponent } from './components/users/users.component';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { MaterialModule } from './material/material.module';
+
 
 
 @NgModule({
@@ -55,11 +51,8 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
