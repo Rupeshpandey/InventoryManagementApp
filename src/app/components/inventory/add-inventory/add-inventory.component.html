@@ -11,8 +11,8 @@
         <label for="productId" class="form-label">Product ID</label>
         <input type="number" id="productId" formControlName="productId" class="form-control" [ngClass]="{'is-invalid': f.productId.touched && f.productId.invalid}">
         <div *ngIf="f.productId.touched && f.productId.invalid" class="invalid-feedback">
-          <div *ngIf="f.productId.errors?.required">Product ID is required.</div>
-          <div *ngIf="f.productId.errors?.min">Product ID must be a positive number.</div>
+          <div *ngIf="f.productId.errors?.['required']">Product ID is required.</div>
+          <div *ngIf="f.productId.errors?.['min']">Product ID must be a positive number.</div>
         </div>
       </div>
       
@@ -20,8 +20,8 @@
         <label for="stockLevel" class="form-label">Stock Level</label>
         <input type="number" id="stockLevel" formControlName="stockLevel" class="form-control" [ngClass]="{'is-invalid': f.stockLevel.touched && f.stockLevel.invalid}">
         <div *ngIf="f.stockLevel.touched && f.stockLevel.invalid" class="invalid-feedback">
-          <div *ngIf="f.stockLevel.errors?.required">Stock Level is required.</div>
-          <div *ngIf="f.stockLevel.errors?.min">Stock Level cannot be negative.</div>
+          <div *ngIf="f.stockLevel.errors?.['required']">Stock Level is required.</div>
+          <div *ngIf="f.stockLevel.errors?.['min']">Stock Level cannot be negative.</div>
         </div>
       </div>
       

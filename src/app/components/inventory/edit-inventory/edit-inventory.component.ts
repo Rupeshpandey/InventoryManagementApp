@@ -1,8 +1,16 @@
-// src/app/edit-inventory/edit-inventory.component.ts
+// src/app/components/inventory/edit-inventory/edit-inventory.component.ts
 import { Component, OnInit } from '@angular/core';
 import { InventoryService, Inventory } from 'src/app/services/inventory.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+// Define the interface for form controls
+interface EditInventoryFormControls {
+  id: FormControl<number | null>;
+  productId: FormControl<number | null>;
+  stockLevel: FormControl<number | null>;
+  lastUpdated: FormControl<Date | null>;
+}
 
 @Component({
   selector: 'app-edit-inventory',
@@ -10,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-inventory.component.css']
 })
 export class EditInventoryComponent implements OnInit {
-  inventoryForm: FormGroup;
+  inventoryForm: FormGroup<EditInventoryFormControls>;
   errorMessage: string = '';
   inventoryId: number = 0;
 
@@ -18,13 +26,13 @@ export class EditInventoryComponent implements OnInit {
     private fb: FormBuilder,
     private inventoryService: InventoryService,
     private route: ActivatedRoute,
-    private router: Router
+    public router: Router // Changed to public
   ) {
     this.inventoryForm = this.fb.group({
-      id: [{ value: '', disabled: true }],
-      productId: ['', [Validators.required, Validators.min(1)]],
-      stockLevel: ['', [Validators.required, Validators.min(0)]],
-      lastUpdated: [{ value: '', disabled: true }]
+      id: new FormControl<number | null>({ value: null, disabled: true }),
+      productId: new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
+      stockLevel: new FormControl<number | null>(null, [Validators.required, Validators.min(0)]),
+      lastUpdated: new FormControl<Date | null>({ value: null, disabled: true })
     });
   }
 
@@ -51,8 +59,8 @@ export class EditInventoryComponent implements OnInit {
     if (this.inventoryForm.valid) {
       const updatedItem: Inventory = {
         id: this.inventoryId,
-        productId: this.inventoryForm.value.productId,
-        stockLevel: this.inventoryForm.value.stockLevel,
+        productId: this.inventoryForm.value.productId!,
+        stockLevel: this.inventoryForm.value.stockLevel!,
         lastUpdated: new Date()
       };
 
@@ -66,5 +74,8 @@ export class EditInventoryComponent implements OnInit {
     }
   }
 
-  get f() { return this.inventoryForm.controls; }
+  // Typed accessor for form controls
+  get f(): EditInventoryFormControls {
+    return this.inventoryForm.controls as EditInventoryFormControls;
+  }
 }
