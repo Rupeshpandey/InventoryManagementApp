@@ -21,7 +21,7 @@ export class EditUserComponent {
   }
 
   updateUser(): void {
-    if (this.user.username && this.user.email && this.user.role) {
+    if (this.user.username && this.user.email && this.user.role) { // Removed password from required
       this.usersService.updateUser(this.user.id, this.user).subscribe({
         next: () => {
           Swal.fire('Success', 'User updated successfully', 'success');

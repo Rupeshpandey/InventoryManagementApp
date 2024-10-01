@@ -14,7 +14,7 @@ export class AddUserComponent {
     id: 0,
     username: '',
     email: '',
-    passwordHash: '',
+    password: '', // Changed from passwordHash to password
     role: '',
     createdAt: new Date()
   };
@@ -25,7 +25,7 @@ export class AddUserComponent {
   ) { }
 
   addUser(): void {
-    if (this.user.username && this.user.email && this.user.passwordHash && this.user.role) {
+    if (this.user.username && this.user.email && this.user.password && this.user.role) { // Changed passwordHash to password
       this.usersService.addUser(this.user).subscribe({
         next: () => {
           Swal.fire('Success', 'User added successfully', 'success');
